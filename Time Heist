@@ -1,13 +1,17 @@
 # Time  Heist
+
 ## Introduction
 Time Heist is a single player VR game. Within Time Heist you are a time traveller who uses his power to go back in time to important sites from history to collect artifacts for your museum, however when you enter this pyramid to seemed to of caused a cave-in to start giving you only 3 minutes to collect as many valuable artifacts as you can before you are stuck here forever.
 
 To make this game it took a team of six of us over a six week period to get the game to a working prototype. Each week we would meet on a Tuesday to see what we had all completed the week before and decide what was needed to be created over the next week, this allowed our teamwork to be elevated as we could bounce ideas off of each other on how to improve scripts, understand code we didn't know and gain a new perspective on what we were working on. Our team was made up Kian Wootton, Dom Duggan, Ryan McFly, Chris Sirell, Louis Tucker and Caitlin Hannan. 
 ## target Audience
+
 Our game can cater to most people, with the game being child friendly from the ages of 7+. Our game doesn't use explicit violence, blood and gore or sexual content. This game was made with the intent to be shown at the Code & Canvas event at Winchester University, meaning we wanted to keep this game available for everyone. We also kept an eye on Colour in our game due to one of our developers being colour blind so the game is made for his specific colour blindness.
 ## Inspiration
+
 Our game was inspired by a few recently popular PC game, as our game was a collection game within what would be called a maze in most game our game was mainly inspired by R.E.P.O, Lethal Company and Content Warning. These three game all use the feature of maps which are maze like and require you to remember where you are going in them whilst also collecting valuable objects to take back to your ship or designated areas on the map whilst avoiding Creatures/ Monsters. In our game however we did not included any creatures as this was a later idea for us in a later iteration of our game. However we were able to take inspirations from other parts of these game like the artifacts and drop off area. One thing we did do differently that we had not seen in these games was make them in VR giving the game genre a different perspective. 
 ## Unity Programming
+
 For this game project we created our game with Unity using the XR plugins allowing us to create this game in VR with some scripts already in the package allowing us to not need to learn how to make a VR interface from scratch. Through unity we were also able to build our game straight onto the VR headsets to test our game at anytime allowing testing whenever needed. This allowed us to progress faster and catch issues along the way with our own and each others scripts. 
 
 For my part of this project I had chosen to work on the games Items. This meant I was working with the artifacts you would find around the Pyramid and collect as well as some other interactable object like torches and a scanner for the objects. For my side of the project I had decided that the main pieces of the object were that it had to interactable; it had to have a value; it had to be damageable and that it had to have visual and audio cue for damage. 
@@ -99,7 +103,7 @@ public class ObjectInformation : MonoBehaviour, IDamageable
     [SerializeField] private ScriptableObjectInformation ItemInformation; // ScriptableObject that stores object data (e.g., name, min/max value, etc.)
 
 ```
-As you can see in this code it has the ==IDamageable== on the end of the ==MonoBehaviour== allowing it to run the damage function in this script. The ==SerializedField== also 
+As you can see in this code it has the ==IDamageable== on the end of the ==MonoBehaviour== allowing it to run the damage function in this script. The ==SerializedField== also will be important as this is what allows us to connect this script to our scriptable objects and run the damage to them, without this piece of code I would have to recreate the entire object in this script which would bring along main problems like the object all having the exact same sound, value and multipliers as well as making the script less efficient and harder to read, which is why we try and break everything up to make it easier but also not putting everything into different scripts as this would then also make things me confusing. 
 ### Damage Indicator
 ### Object scanner 
 ## Audio Mixer
