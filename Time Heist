@@ -1,0 +1,108 @@
+# Time  Heist
+## Introduction
+Time Heist is a single player VR game. Within Time Heist you are a time traveller who uses his power to go back in time to important sites from history to collect artifacts for your museum, however when you enter this pyramid to seemed to of caused a cave-in to start giving you only 3 minutes to collect as many valuable artifacts as you can before you are stuck here forever.
+
+To make this game it took a team of six of us over a six week period to get the game to a working prototype. Each week we would meet on a Tuesday to see what we had all completed the week before and decide what was needed to be created over the next week, this allowed our teamwork to be elevated as we could bounce ideas off of each other on how to improve scripts, understand code we didn't know and gain a new perspective on what we were working on. Our team was made up Kian Wootton, Dom Duggan, Ryan McFly, Chris Sirell, Louis Tucker and Caitlin Hannan. 
+## target Audience
+Our game can cater to most people, with the game being child friendly from the ages of 7+. Our game doesn't use explicit violence, blood and gore or sexual content. This game was made with the intent to be shown at the Code & Canvas event at Winchester University, meaning we wanted to keep this game available for everyone. We also kept an eye on Colour in our game due to one of our developers being colour blind so the game is made for his specific colour blindness.
+## Inspiration
+Our game was inspired by a few recently popular PC game, as our game was a collection game within what would be called a maze in most game our game was mainly inspired by R.E.P.O, Lethal Company and Content Warning. These three game all use the feature of maps which are maze like and require you to remember where you are going in them whilst also collecting valuable objects to take back to your ship or designated areas on the map whilst avoiding Creatures/ Monsters. In our game however we did not included any creatures as this was a later idea for us in a later iteration of our game. However we were able to take inspirations from other parts of these game like the artifacts and drop off area. One thing we did do differently that we had not seen in these games was make them in VR giving the game genre a different perspective. 
+## Unity Programming
+For this game project we created our game with Unity using the XR plugins allowing us to create this game in VR with some scripts already in the package allowing us to not need to learn how to make a VR interface from scratch. Through unity we were also able to build our game straight onto the VR headsets to test our game at anytime allowing testing whenever needed. This allowed us to progress faster and catch issues along the way with our own and each others scripts. 
+
+For my part of this project I had chosen to work on the games Items. This meant I was working with the artifacts you would find around the Pyramid and collect as well as some other interactable object like torches and a scanner for the objects. For my side of the project I had decided that the main pieces of the object were that it had to interactable; it had to have a value; it had to be damageable and that it had to have visual and audio cue for damage. 
+### Object Rigging
+
+To start creating these object I start by just using a cube as a place holder for my prefabs which were being made by the design side of our team. The components that the cube needed were:
+- Rigidbody
+- Box Collider
+- XR Grab Interactable Script
+#### RigidBody
+The Rigidbody allows me to collect the X and Y co-ordinates of the object at every frame allowing me to calculate the velocity of the object easily which will be very important very the Fall Damage Handler Script. The Rigidbody also allows me to add gravity to the object, this is because the Rigidbody is a physics based component which allows us to make our game world more realistic.
+#### Box Collider
+The Box Collider allows me to make the object interactable, this component will allow to make it so that it can be picked up and hit against the floor and walls without leaving the map as well as help me register collision when i create the Fall Damage Script for the object.
+#### XR Grab Interactable Script 
+This Component is in fact a Script which is included in the plugin for the VR side of the game, this script is what allows the left and right VR controllers to pick up object in the game and interact with them. This Script allows you to choose how you want the object to interact with the world with the Movement types (Velocity tracking, Kinematic and Instantaneous), for our project we chose the Velocity tracking for most objects as this allows the hands to move with the object and set velocities of the object and makes sure that the object cant go through other objects using the Rigidbody.
+### Scriptable Object
+To create our artifacts we had decided that a lot of the information for the artifacts would be the same so to make are game more proficient I had created Scriptable objects, this allowed us to to create objects which had all the same type of information however the values of the information could be changed and wouldn't mean creating lots of different scripts to do the same thing. For the first iteration of the code looked like:
+
+```csharp
+{
+   public string objectName; // Objects Name 
+   public float mass; // weight of the object
+   public float health; // value of the health
+   public float value; // how much object is worth
+   public Gameobject objectprefab; // objects prefab
+}
+```
+I had decide to randomise the values within the scriptable object allowing it to all be confined into one object, however later decided to changes this as I had found that this would give every object that was using this scriptable to have the exact same values. 
+
+```csharp
+   // Randomises the values of health, mass and value
+   public void Randomise()
+   {
+      health = Random.Range (20, 100);
+      mass = Random.Range (20, 100);
+      value = Random.Range (40, 1000);
+   }
+}
+```
+To allow us to make scriptable objects easier I decide to add this line of code which would create a button inside the create tab in unity allowing us to make them and as many as we like. 
+```csharp
+// Allows you to create a Scriptable object from the create menu in unity
+[CreateAssetMenu(fileName = "ScriptableItems", menuName = "ScriptableObject/ScriptableItems")]
+```
+After creating this script I realised that in I dont need a Value and a Health stat as they will be doing the same thing within the script so I decide to remove the the health values as well as the Game Object prefab as they wouldnt be attached to the object and Instantiate in the the scripts.
+
+```csharp
+{
+   public string objectName; // Objects Name 
+   public float mass; // weight of the object
+   public float value; // how much object is worth
+
+   // Randomises the values of health, mass and value
+   public void Randomise()
+   {
+      mass = Random.Range (20, 100);
+      value = Random.Range (40, 1000);
+   }
+}
+
+```
+After doing these changes I had started to work on the Object information script. Which at this point would only pull the values that it needed from the scriptable object (Value). Whilst making the damage script and the audio mixer I had decided to move some of the other key information each object would need onto the objects for example audio and damage multipliers allowing for all values which will either stay the same across all object or will change slightly to be in the the scriptable object. This meant it only stored values and decided to also remove any functions including the randomise to the Item Information script as this would allow all object to have a different value even if they were they had the same scriptable object. This scriptable object also no longer randomised the values of certain pieces of information like value as this would give each object the same price which wasn't what we wanted.  
+
+```csharp
+{
+   public string objectName; // Objects Name 
+   public float mass; // weight of the object
+   public AudioClip damageAudio;
+   public float safeFallVelocity; // Hieght for the item to take damage
+   public float damageMultiplier; // Set the multiplier for damage  
+   public float minValue; // min value of object
+   public float maxValue; // max value of object
+}
+```
+### Fall Damage
+After creating the scriptable object I decided to start on the damage the objects would take. For the object to do this we needed to track their velocity and decide what should and shouldn't be able to damage the item. For this we decided that any object in the rooms should be able to damage the artifacts except other artifacts and to do this we gave every item the wall or floor layer allowing us to treat them all the same when calling for layer masks. We then though about the artifacts themselves and decided on using and interface to make them damageable in the game, this mean the script had to run a function otherwise the code wouldn't work, this allowed it to be a security net for us.
+
+For our code to work we made our Interface(IDamageable) have to run this function for damageable item to work. This piece of code had to be on our main script which would damage the items which is the Item information script.
+```csharp
+public interface IDamageable // damage Interface
+{
+    void Damage(float impactVelocity); // calls damage 
+}
+```
+After creating this script we had to make sure whatever script would do damage to the object had ==IDamageable== on it which would allow us to run this function.
+```csharp
+public class ObjectInformation : MonoBehaviour, IDamageable
+{
+    [SerializeField] private ScriptableObjectInformation ItemInformation; // ScriptableObject that stores object data (e.g., name, min/max value, etc.)
+
+```
+As you can see in this code it has the ==IDamageable== on the end of the ==MonoBehaviour== allowing it to run the damage function in this script. The ==SerializedField== also 
+### Damage Indicator
+### Object scanner 
+## Audio Mixer
+## Item and Background Audio
+## Feedback
+## Conclusion 
