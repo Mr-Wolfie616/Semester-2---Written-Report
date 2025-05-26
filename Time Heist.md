@@ -403,4 +403,4 @@ This was a demanding project lasting six weeks. We had set ourselves the difficu
 
 I do believe that this project was a great success, particularly as a working prototype, and as a team, we are keen to keep making improvements over time. I am also pleased to report that this project has also taught me information about audio mixers, a slight amount about animation and new functions in unity (coroutine, interfaces and colliders).
 
-I also acknowledge that a lot of this work has been done with the help of my peers in my group as well as [Unity manual] (https://docs.unity3d.com/2022.3/Documentation/Manual/UnityManual.html) and assets brought by Ryan Mcfly on the unity asset store.
+I also acknowledge that a lot of this work has been done with the help of my peers in my group as well as [Unity manual](https://docs.unity3d.com/2022.3/Documentation/Manual/UnityManual.html) and assets brought by Ryan Mcfly on the unity asset store.
