@@ -21,7 +21,7 @@ When creating these objects, I started by using a cube as a place holder for my 
 - Box Collider
 - XR Grab Interactable Script
 
-![image]()
+![image](Media/Artefact_Components.png)
 
 #### RigidBody
 The RigidBody allowed me to collect the X and Y co-ordinates of the object at every frame, thereby allowing me to calculate the velocity of the object more easily which, is very important for the Fall Damage Handler Script. The RigidBody also allowed me to add gravity to the object, this is because the RigidBody is a physics based component which allows developers to make the games world more realistic.
@@ -95,7 +95,7 @@ After these changes had been made, I began working on the Object information scr
    public float maxValue; // max value of object
 }
 ```
-
+![image](Media/Artefact_scriptable_object.png)
 ### Fall Damage
 I then decided to work on the damage the objects would take. For the object to do this we needed to track their velocity and decide what should and shouldn't be able to damage the item. We decided that any object in the rooms should be able to damage the artefacts, except other artefacts. To do this, we gave every item the wall or floor layer allowing us to treat them all the same when calling for layer masks. We then decided to use an interface to make them damageable in the game, this meant that the script had to run a function otherwise the code wouldn't work. This allowed it to be a security net for us.
 
@@ -164,6 +164,7 @@ This script was required by the IDamageable interface to allow us to take the da
       Debug.Log("Object landed safely. No damage taken.");
    }      
 ```
+![image](Media/Safe_fall.png)
 
 If the function does get called, it will calculate the damage for the artefact by taking the impact velocity away from the safe fall velocity which is found within the scriptable object. This will then be multiplied by the damage multiplier which can also be seen on the scriptable object. This will then be taken away from the value of the artefact. 
 
@@ -188,6 +189,7 @@ Finally, for the damage calculation, I added an 'if' statement which checks if t
    Debug.Log("Break Me!!");
    }
 ```
+![image](Media/Fall_damage.png)
 
 After creating the code which calculates the damage, I created a script to figure out if the artefact was in the air when it collided into a wall or floor and what the impact velocity is.
 
@@ -364,12 +366,20 @@ void Follow()
 }
 ```
 
+https://github.com/user-attachments/assets/b2a6a266-eecd-4ed9-89f5-89f63f096add
+
+
 ## Audio
 The final area I worked on was audio for our game (note, I am not the creator of any audio tracks used in our game, some were from a royalty free website and the others were from [Kenney](https://www.kenney.nl)). To begin making our audio for the game we decided that we needed background music for our menus, ambience, torch effect as well as damage audio for our scenes. I was able to find two different music tracks from Kenney which we put into certain scenes, and made the audio 2D which allowed the audio to play across the whole scene. I did the same for the ambience sound which was a bass rumble on loop. Unfortunately as this part of the project was done just a day before the deadline, I had only three audio clips for damage and my looping torch effect. This meant that the diversity for my audio tracks was low and most assets had the same effects on them. 
 
 To give the items, and the world within which they set, it's music, I first had to add a component called audio source a child prefab of the artefacts and the torch. I then chose which audio would be connected to which artefact and added them to the Scriptable object. This allowed me to better organise the artefacts and allow for the damage noise to run simultaneously. One notable difference between the audio of the artefacts and the background noise however, was that the audio was in 3D form. This meant that when inside the VR headset, the audio for damage or the torch would only play in the ear closest to the noise (unless it was right infront of you or very close to your ears). This allowed us to add more realism into our game.
 
+![image](Media/Cup_hierarchy.png)
+![image](Media/Sound_prefab.png)
+
 The final part for the audio was to make sure every noise was balanced between the audio tracks. To do this, I grouped the audio tracks with background audio, with ambience being in the master group and the torch and damage noise being in a SFX group. This allowed me to set the audio levels in the audio mixer. I made sure that when the SFX sounds played they would be louder than the master group, allowing for the player to be a little shocked when the objects broke. I also lined up the the sound prefab with their artefacts, thereby allowing the noise to radiate from the artefact not too far away, so if you damage an object you wont hear it from the other side of the Pyramid.
+
+![image](Media/Audio_mixer.png)
 
 To create the damage audio to go off at the same time the artefact is damaged, I had to add a damage sound function to my Object Information script with. This function checks whether there isn't an audio source on the object, and if it doesn't exist, it will find the component on the child prefab sound. Once this has been found and the damage audio has been found, it will play a one shot of the damage audio. 
 
@@ -404,3 +414,6 @@ This was a demanding project lasting six weeks. We had set ourselves the difficu
 I do believe that this project was a great success, particularly as a working prototype, and as a team, we are keen to keep making improvements over time. I am also pleased to report that this project has also taught me information about audio mixers, a slight amount about animation and new functions in unity (coroutine, interfaces and colliders).
 
 I also acknowledge that a lot of this work has been done with the help of my peers in my group as well as [Unity manual](https://docs.unity3d.com/2022.3/Documentation/Manual/UnityManual.html) and assets brought by Ryan Mcfly on the unity asset store.
+
+https://github.com/user-attachments/assets/e43d01cb-9dfc-4541-9c84-ec80267ef59e
+
