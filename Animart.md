@@ -24,12 +24,14 @@ different piece of data.
 ### Score Paper
 When starting our game I created a large cube to hold which would act as the desk to hold the pages of scores. 
 
-After this I created three planes which would act as sheets of paper to hold the scores from the day people in the gameplay this would then have a RigidBody attached to allow the paper to have gravity and be 
-lifted around the scene. This was then changed due to how the scene would be set. If the page had gravity it wouldnt be on the desk and leave the screen as the desk is a 2D horizontal plane.
+![image](Media/Desk.png)
 
-![image]()
+After this I created three planes which would act as sheets of paper to hold the scores from the day people in the gameplay this would then have a RigidBody attached to allow the paper to have gravity and be lifted around the scene. This was then changed due to how the scene would be set. If the page had gravity it wouldnt be on the desk and leave the screen as the desk is a 2D horizontal plane.
 
-The page would has a child connected to it being TMP Text. This would be where I am able to add the text for the score after the gameplay is completed 
+The page would have a child connected to it being TMP Text. This would be where I am able to add the text for the score after the gameplay is completed. These would automatically update by reading the variable of Jack and Solar scripts allowing me to take thier values and display them in a way easy enough for younger players to see. For example Reputation is a stat the player can improve through minigames on the characters phone which will increase how many customers will come into the store for you to serve as well as increase the value of items in store and whilst haggling. This was shown with a grade from F rank to S rank like in many games. 
+
+![image](Media/Paper_stats.png)
+
 ### Text Mesh Pro
 ### Mouse Interaction
 ### Feedback
