@@ -427,3 +427,6 @@ https://github.com/user-attachments/assets/e43d01cb-9dfc-4541-9c84-ec80267ef59e
 - [XR Simple Interactables in Unity XR Interaction Toolkit by Ryan Murray](https://www.youtube.com/watch?v=a1Hl1oqAVlE&t=480s)-Youtube (2023)
 - [AUDIO MIXERS In Unity by Kap Koder](https://www.youtube.com/watch?v=pbuJUaO-wpY&t=2s)-Youtube (2022)
 - [How to Make Damage Text and Number Popups in Unity | Tutorial by Wintermute Digital](https://www.youtube.com/watch?v=LjNsDVYXfrk)-Youtube (2021)
+- [R.E.P.O](https://store.steampowered.com/app/3241660/REPO/)(2025)
+- [Lethal Company](https://store.steampowered.com/app/1966720/Lethal_Company/)(2023)
+- [Content Warning](https://landfall.se/content-warning)(2024)
