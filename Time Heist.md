@@ -1,4 +1,7 @@
 # Time  Heist
+
+> 3,746 Word excluding references and code
+
 ## Introduction
 Time Heist is a single player VR game. As a time traveller, players use powers to go back in time to important historical sites. They are tasked with collecting artefacts for their museum however, on entry to the pyramid, it caves in on the player, giving them just 3 minutes to collect as many valuable artefacts as they can before being stuck in the pyramid forever.
 
@@ -417,3 +420,10 @@ I also acknowledge that a lot of this work has been done with the help of my pee
 
 https://github.com/user-attachments/assets/e43d01cb-9dfc-4541-9c84-ec80267ef59e
 
+# Reference
+
+- [Unity manual](https://docs.unity3d.com/2022.3/Documentation/Manual/UnityManual.html) (2022)
+- [Kenney](https://www.kenney.nl)
+- [XR Simple Interactables in Unity XR Interaction Toolkit by Ryan Murray](https://www.youtube.com/watch?v=a1Hl1oqAVlE&t=480s)-Youtube (2023)
+- [AUDIO MIXERS In Unity by Kap Koder](https://www.youtube.com/watch?v=pbuJUaO-wpY&t=2s)-Youtube (2022)
+- [How to Make Damage Text and Number Popups in Unity | Tutorial by Wintermute Digital](https://www.youtube.com/watch?v=LjNsDVYXfrk)-Youtube (2021)
