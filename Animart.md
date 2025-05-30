@@ -1,5 +1,7 @@
 # Animart
 
+> 1,553 Word excluding references and code.
+
 ## Introduction
 Animart is a single player mobile game. As a Shop Owner, players scan store items to make money whilst haggling with customers and then using this money to improve states (Charisma, Shop Time and etc). Whilst upgrading after 5 in game days you would've needed to make a certain sum of money to pay rent of the shop, if you were unable to pay the rent you would lose the game and have to start from day 1 again.
 
@@ -159,3 +161,9 @@ https://github.com/user-attachments/assets/23dbc872-1d18-405e-a1e8-d87d8a91181a
 
 ### Conclusion
 In conclusion from the work done in this project none of my work was able to be implemented due to miscommunication between peers, large changes constantly happening as well as our group not being determined to create a game we enjoyed. I believe the work I have done on this project does show this as after looking back on this project i believe that it could of been ran, developed and coded different after completing working on my latest project "Time Heist". The areas that I believe needed to work on more whilst doing this project would be using the Unity manual more closely instead of using simple ways of writing this code. I also believe that my group could of done with more structure as a group and a clear set goal from the start that doesn't effect our certain areas of the group close to the deadline.
+
+# Reference
+-[Unity manual](https://docs.unity3d.com/2022.3/Documentation/Manual/UnityManual.html) (2022)
+-[Make a TIMER & COUNTDOWN in 5 Mins | Unity Tutorial for Beginners by Rehope Games](https://www.youtube.com/watch?v=POq1i8FyRyQ&t=185s)-Youtube (2024)
+
+
